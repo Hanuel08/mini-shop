@@ -80,6 +80,22 @@ $router->delete('/countries/{id:\d+}', [CountryController::class, 'delete']);
 
 
 
+# address
+$router->get('/address', [AddressController::class, 'getAll']);
+$router->get('/address/{id:\d+}', [AddressController::class, 'getById']);
+
+$router->post('/address', [AddressController::class, 'create']);
+
+$router->put('/address/{id:\d+}', [AddressController::class, 'update']);
+
+$router->delete('/address/{id:\d+}', [AddressController::class, 'delete']);
+
+
+
+
+
+
+
 
 
 
