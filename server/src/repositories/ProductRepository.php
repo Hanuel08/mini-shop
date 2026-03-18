@@ -21,7 +21,7 @@ class ProductRepository {
         $stmt->bindParam(":price", $data["price"], PDO::PARAM_STR);
         $stmt->bindParam(":remaining_amount", $data["remaining_amount"], PDO::PARAM_INT);
 
-        return $stmt->execute();;
+        return $stmt->execute();
     }
 
     public function getAll() {
@@ -30,7 +30,6 @@ class ProductRepository {
 
         $stmt = $this->db->prepare($query);
         $stmt->execute();
-
         return $stmt->fetchAll();
     }
 
@@ -42,7 +41,6 @@ class ProductRepository {
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
-
         return $stmt->fetch();
     }
 
@@ -65,9 +63,7 @@ class ProductRepository {
         $stmt->bindParam(":price", $data["price"], PDO::PARAM_STR);
         $stmt->bindParam(":remaining_amount", $data["remaining_amount"], PDO::PARAM_INT);
 
-        $stmt->execute();
-
-        return $stmt->fetchAll();
+        return $stmt->execute();
     }
 
     public function delete($id) {
@@ -76,9 +72,7 @@ class ProductRepository {
 
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
-        $stmt->execute();
-
-        return $stmt->fetch();
+        return $stmt->execute();
     }
 
     public function getSubproducts($id) {
@@ -99,7 +93,6 @@ class ProductRepository {
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
-
         return $stmt->fetchAll();
     }
 }

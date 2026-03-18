@@ -19,18 +19,15 @@ class CountryRepository {
         $stmt->bindParam(":name", $data["name"], PDO::PARAM_STR);
         $stmt->bindParam(":domain", $data["domain"], PDO::PARAM_STR);
 
-        return $stmt->execute();;
+        return $stmt->execute();
     }
-
 
     public function getAll() {
         $query = "SELECT *
                     FROM country";
 
         $stmt = $this->db->prepare($query);
-
         $stmt->execute();
-
         return $stmt->fetchAll();
     }
 
@@ -42,7 +39,6 @@ class CountryRepository {
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
-
         return $stmt->fetch();
     }
 
@@ -59,9 +55,7 @@ class CountryRepository {
         $stmt->bindParam(":name", $data["name"], PDO::PARAM_STR);
         $stmt->bindParam(":domain", $data["domain"], PDO::PARAM_STR);
 
-        $stmt->execute();
-
-        return $stmt->fetch();
+        return $stmt->execute();
     }
 
     public function delete($id) {
@@ -70,8 +64,6 @@ class CountryRepository {
 
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
-        $stmt->execute();
-
-        return $stmt->fetch();
+        return $stmt->execute();
     }
 }

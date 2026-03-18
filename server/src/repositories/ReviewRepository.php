@@ -21,18 +21,15 @@ class ReviewRepository {
         $stmt->bindParam(":review", $data["review"], PDO::PARAM_STR);
         $stmt->bindParam(":rating", $data["rating"], PDO::PARAM_STR);
 
-        return $stmt->execute();;
+        return $stmt->execute();
     }
-
 
     public function getAll() {
         $query = "SELECT *
                     FROM review";
 
         $stmt = $this->db->prepare($query);
-
         $stmt->execute();
-
         return $stmt->fetchAll();
     }
 
@@ -44,7 +41,6 @@ class ReviewRepository {
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
-
         return $stmt->fetch();
     }
 
@@ -65,9 +61,7 @@ class ReviewRepository {
         $stmt->bindParam(":review", $data["review"], PDO::PARAM_STR);
         $stmt->bindParam(":rating", $data["rating"], PDO::PARAM_STR);
 
-        $stmt->execute();
-
-        return $stmt->fetch();
+        return $stmt->execute();
     }
 
     public function delete($id) {
@@ -76,9 +70,7 @@ class ReviewRepository {
 
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
-        $stmt->execute();
-
-        return $stmt->fetch();
+        return $stmt->execute();
     }
 
     public function getUser($id) {
@@ -100,7 +92,6 @@ class ReviewRepository {
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
-
         return $stmt->fetch();
     }
 
@@ -122,7 +113,6 @@ class ReviewRepository {
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
-
         return $stmt->fetch();
     }
 }

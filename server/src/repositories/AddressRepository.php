@@ -22,18 +22,15 @@ class AddressRepository {
         $stmt->bindParam(":street", $data["street"], PDO::PARAM_STR);
         $stmt->bindParam(":cp", $data["cp"], PDO::PARAM_STR);
 
-        return $stmt->execute();;
+        return $stmt->execute();
     }
-
 
     public function getAll() {
         $query = "SELECT *
                     FROM address";
 
         $stmt = $this->db->prepare($query);
-
         $stmt->execute();
-
         return $stmt->fetchAll();
     }
 
@@ -45,7 +42,6 @@ class AddressRepository {
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
-
         return $stmt->fetch();
     }
 
@@ -68,9 +64,7 @@ class AddressRepository {
         $stmt->bindParam(":street", $data["street"], PDO::PARAM_STR);
         $stmt->bindParam(":cp", $data["cp"], PDO::PARAM_STR);
 
-        $stmt->execute();
-
-        return $stmt->fetch();
+        return $stmt->execute();
     }
 
     public function delete($id) {
@@ -79,8 +73,6 @@ class AddressRepository {
 
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
-        $stmt->execute();
-
-        return $stmt->fetch();
+        return $stmt->execute();
     }
 }

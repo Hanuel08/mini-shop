@@ -24,7 +24,7 @@ class UserRepository {
         $stmt->bindParam(":phone", $data["phone"], PDO::PARAM_STR);
         $stmt->bindParam(":email", $data["email"], PDO::PARAM_STR);
 
-        return $stmt->execute();;
+        return $stmt->execute();
     }
 
 
@@ -33,9 +33,7 @@ class UserRepository {
                     FROM user";
 
         $stmt = $this->db->prepare($query);
-
         $stmt->execute();
-
         return $stmt->fetchAll();
     }
 
@@ -47,7 +45,6 @@ class UserRepository {
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
-
         return $stmt->fetch();
     }
 
@@ -74,9 +71,7 @@ class UserRepository {
         $stmt->bindParam(":phone", $data["phone"], PDO::PARAM_STR);
         $stmt->bindParam(":email", $data["email"], PDO::PARAM_STR);
 
-        $stmt->execute();
-
-        return $stmt->fetch();
+        return $stmt->execute();
     }
 
     public function delete($id) {
@@ -85,9 +80,7 @@ class UserRepository {
 
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
-        $stmt->execute();
-
-        return $stmt->fetch();
+        return $stmt->execute();
     }
 
     public function getLanguage($id) {
@@ -100,7 +93,6 @@ class UserRepository {
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
-
         return $stmt->fetch();
     }
 
@@ -121,7 +113,6 @@ class UserRepository {
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
-
         return $stmt->fetchAll();
     }
 }
