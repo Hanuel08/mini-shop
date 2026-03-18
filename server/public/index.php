@@ -32,6 +32,10 @@ require_once "../src/controllers/AddressController.php";
 require_once "../src/services/AddressService.php";
 require_once "../src/repositories/AddressRepository.php";
 
+require_once "../src/controllers/LanguageController.php";
+require_once "../src/services/LanguageService.php";
+require_once "../src/repositories/LanguageRepository.php";
+
 
 require_once "../src/utils/passwordHash.php";
 

@@ -2,6 +2,17 @@
 
 
 
+# language
+$router->get('/language', [LanguageController::class, 'getAll']);
+$router->get('/language/{id:\d+}', [LanguageController::class, 'getById']);
+
+$router->post('/language', [LanguageController::class, 'create']);
+
+$router->put('/language/{id:\d+}', [LanguageController::class, 'update']);
+
+$router->delete('/language/{id:\d+}', [LanguageController::class, 'delete']);
+
+
 # user
 $router->get('/users', [UserController::class, 'getAll']);
 $router->get('/users/{id:\d+}', [UserController::class, 'getById']);
