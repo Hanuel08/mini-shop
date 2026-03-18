@@ -103,8 +103,15 @@ $router->delete('/address/{id:\d+}', [AddressController::class, 'delete']);
 
 
 
+# permission
+$router->get('/permissions', [PermissionController::class, 'getAll']);
+$router->get('/permissions/{id:\d+}', [PermissionController::class, 'getById']);
 
+$router->post('/permissions', [PermissionController::class, 'create']);
 
+$router->put('/permissions/{id:\d+}', [PermissionController::class, 'update']);
+
+$router->delete('/permissions/{id:\d+}', [PermissionController::class, 'delete']);
 
 
 

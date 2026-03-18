@@ -7,6 +7,10 @@ require_once "../src/core/Request.php";
 require_once "../src/core/Response.php";
 require_once "../src/core/Router.php";
 
+require_once "../src/controllers/LanguageController.php";
+require_once "../src/services/LanguageService.php";
+require_once "../src/repositories/LanguageRepository.php";
+
 require_once "../src/controllers/UserController.php";
 require_once "../src/services/UserService.php";
 require_once "../src/repositories/UserRepository.php";
@@ -32,9 +36,9 @@ require_once "../src/controllers/AddressController.php";
 require_once "../src/services/AddressService.php";
 require_once "../src/repositories/AddressRepository.php";
 
-require_once "../src/controllers/LanguageController.php";
-require_once "../src/services/LanguageService.php";
-require_once "../src/repositories/LanguageRepository.php";
+require_once "../src/controllers/PermissionController.php";
+require_once "../src/services/PermissionService.php";
+require_once "../src/repositories/PermissionRepository.php";
 
 
 require_once "../src/utils/passwordHash.php";
