@@ -24,13 +24,17 @@ require_once "../src/controllers/ReviewController.php";
 require_once "../src/services/ReviewService.php";
 require_once "../src/repositories/ReviewRepository.php";
 
+require_once "../src/controllers/CountryController.php";
+require_once "../src/services/CountryService.php";
+require_once "../src/repositories/CountryRepository.php";
+
 
 require_once "../src/utils/passwordHash.php";
 
 
 $router = new Router();
 
-require_once "../src/routes/api.php";
+require_once "../src/routes/routes.php";
 
 $router->resolve();
 

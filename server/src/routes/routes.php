@@ -67,6 +67,15 @@ $router->get('/reviews/{id:\d+}', [ReviewController::class, 'getProduct']);
 
 
 
+# country
+$router->get('/countries', [CountryController::class, 'getAll']);
+$router->get('/countries/{id:\d+}', [CountryController::class, 'getById']);
+
+$router->post('/countries', [CountryController::class, 'create']);
+
+$router->put('/countries/{id:\d+}', [CountryController::class, 'update']);
+
+$router->delete('/countries/{id:\d+}', [CountryController::class, 'delete']);
 
 
 
