@@ -3,14 +3,14 @@
 
 
 # language
-$router->get('/language', [LanguageController::class, 'getAll']);
-$router->get('/language/{id:\d+}', [LanguageController::class, 'getById']);
+$router->get('/languages', [LanguageController::class, 'getAll']);
+$router->get('/languages/{id:\d+}', [LanguageController::class, 'getById']);
 
-$router->post('/language', [LanguageController::class, 'create']);
+$router->post('/languages', [LanguageController::class, 'create']);
 
-$router->put('/language/{id:\d+}', [LanguageController::class, 'update']);
+$router->put('/languages/{id:\d+}', [LanguageController::class, 'update']);
 
-$router->delete('/language/{id:\d+}', [LanguageController::class, 'delete']);
+$router->delete('/languages/{id:\d+}', [LanguageController::class, 'delete']);
 
 
 # user
