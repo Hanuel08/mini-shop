@@ -40,6 +40,10 @@ require_once "../src/controllers/PermissionController.php";
 require_once "../src/services/PermissionService.php";
 require_once "../src/repositories/PermissionRepository.php";
 
+require_once "../src/controllers/RoleController.php";
+require_once "../src/services/RoleService.php";
+require_once "../src/repositories/RoleRepository.php";
+
 
 require_once "../src/utils/passwordHash.php";
 

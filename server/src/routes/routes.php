@@ -115,5 +115,20 @@ $router->delete('/permissions/{id:\d+}', [PermissionController::class, 'delete']
 
 
 
+# role
+$router->get('/roles', [RoleController::class, 'getAll']);
+$router->get('/roles/{id:\d+}', [RoleController::class, 'getById']);
+
+$router->post('/roles', [RoleController::class, 'create']);
+
+$router->put('/roles/{id:\d+}', [RoleController::class, 'update']);
+
+$router->delete('/roles/{id:\d+}', [RoleController::class, 'delete']);
+
+
+$router->post('/roles/{id:\d+}/permissions', [RoleController::class, 'setPermission']);
+
+$router->get('/roles/{id:\d+}/permissions', [RoleController::class, 'getPermissions']);
+
 
 
