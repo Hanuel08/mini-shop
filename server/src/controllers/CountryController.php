@@ -1,5 +1,9 @@
 <?php
 
+namespace App\controllers;
+use App\services\CountryService;
+use App\core\Request;
+use App\core\Response;
 
 class CountryController {
     private $service;

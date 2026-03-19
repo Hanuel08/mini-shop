@@ -1,5 +1,9 @@
 <?php
 
+namespace App\core;
+use App\core\Request;
+use App\core\Response;
+
 class Router {
     private $routes = [];
 
@@ -33,13 +37,13 @@ class Router {
             Response::json(["error" => "Route not found"], 404);
         }
 
-        /* echo "uri\n\n";
+        /* echo "\n\nuri\n";
         var_dump($uri);
 
-        echo "routes\n\n";
+        echo "\n\nroutes\n";
         var_dump($this->routes);
 
-        echo "\n\nJSON\n\n";
+        echo "\n\nJSON\n";
         //Response::json($this->routes);
         var_dump(json_encode($this->routes)); */
 
@@ -72,11 +76,15 @@ class Router {
 
                 [$controller, $function] = $handler;
 
+                /* echo "\ncontroller 1\n";
+                var_dump($controller);
+                echo "\n"; */
+
                 if (!class_exists($controller)) {
                     Response::json(["error" => "Controller not found"], 500);
                 }
 
-                /* echo "controller\n";
+                /* echo "\ncontroller\n";
                 var_dump($controller);
                 echo "\n";
 

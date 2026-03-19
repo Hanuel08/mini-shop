@@ -1,5 +1,9 @@
 <?php
 
+namespace App\controllers;
+use App\services\LanguageService;
+use App\core\Request;
+use App\core\Response;
 
 class LanguageController {
     private $service;

@@ -1,21 +1,19 @@
 <?php
 
+namespace App\config;
+use \PDO;
+
 class Database {
-    private static $HOST = "localhost";
-    private static $PORT = "3306";
-    private static $DATABASE_NAME = "simple_shop";
-    private static $USERNAME = "simple_shop";
-    private static $PASSWORD = "338thwT2";
 
     public static function connect() {
         try {
-            $dsn = "mysql:host=" . self::$HOST .
-                   ";port=" . self::$PORT .
-                   ";dbname=" . self::$DATABASE_NAME .
+            $dsn = "mysql:host=" . $_ENV["DB_HOST"] .
+                   ";port=" . $_ENV["DB_PORT"] .
+                   ";dbname=" . $_ENV["DB_NAME"] .
                    ";charset=utf8mb4";
 
 
-            $connection = new PDO($dsn, self::$USERNAME, self::$PASSWORD);
+            $connection = new PDO($dsn, $_ENV["DB_USER"], $_ENV["DB_PASSWORD"]);
             
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
@@ -39,22 +37,3 @@ class Database {
     }
 }
 
-
-
-/* class Database {
-    public static function connect() {
-        try {
-            $HOST = "localhost";
-            $PORT = "3306";
-            $DATABASE_NAME = "simple_shop";
-            $USERNAME = "simple_shop";
-            $PASSWORD = "338thwT2";
-
-            $connection = new PDO("mysql:host={$HOST};port={$PORT};dbname={$DATABASE_NAME}", $USERNAME, $PASSWORD);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            return $connection;
-        } catch (PDOException $err) {
-            die("ERROR to connect to database: ".$err->getMessage());
-        }
-    }
-} */

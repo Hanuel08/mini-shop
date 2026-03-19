@@ -1,5 +1,9 @@
 <?php
 
+namespace App\controllers;
+use App\services\PermissionService;
+use App\core\Request;
+use App\core\Response;
 
 class PermissionController {
     private $service;

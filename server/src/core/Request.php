@@ -1,5 +1,7 @@
 <?php
 
+namespace App\core;
+
 class Request {
     public static function method() {
         return $_SERVER['REQUEST_METHOD'] ?? 'GET';

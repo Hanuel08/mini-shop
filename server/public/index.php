@@ -1,13 +1,20 @@
 <?php 
 
+require_once __DIR__ . '../../../vendor/autoload.php';
 
-require_once "../src/config/Database.php";
 
-require_once "../src/core/Request.php";
-require_once "../src/core/Response.php";
-require_once "../src/core/Router.php";
+//require_once "../src/config/Database.php";
+//use App\config\Database;
 
-require_once "../src/controllers/LanguageController.php";
+use App\core\Router;
+//use App\core\Request;
+//use App\core\Response;
+
+//require_once "../src/core/Request.php";
+//require_once "../src/core/Response.php";
+//require_once "../src/core/Router.php";
+
+/* require_once "../src/controllers/LanguageController.php";
 require_once "../src/services/LanguageService.php";
 require_once "../src/repositories/LanguageRepository.php";
 
@@ -42,15 +49,26 @@ require_once "../src/repositories/PermissionRepository.php";
 
 require_once "../src/controllers/RoleController.php";
 require_once "../src/services/RoleService.php";
-require_once "../src/repositories/RoleRepository.php";
+require_once "../src/repositories/RoleRepository.php"; */
 
 
 require_once "../src/utils/passwordHash.php";
+
+
+
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 
 $router = new Router();
 
 require_once "../src/routes/routes.php";
 
+
 $router->resolve();
+
+//Database::connect();
+
+
 

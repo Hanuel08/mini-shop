@@ -1,5 +1,10 @@
 <?php
 
+namespace App\controllers;
+use App\services\ProductService;
+use App\core\Request;
+use App\core\Response;
+
 class ProductController {
     private $service;
 

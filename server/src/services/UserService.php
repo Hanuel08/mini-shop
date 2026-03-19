@@ -1,6 +1,9 @@
 <?php 
 
+namespace App\services;
+use App\repositories\UserRepository;
 
+//require_once "../utils/passwordHash.php";
 
 class UserService {
     private $repository;

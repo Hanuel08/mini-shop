@@ -1,5 +1,8 @@
 <?php 
 
+namespace App\services;
+use App\repositories\SubproductRepository;
+
 class SubproductService {
     private $repository;
 

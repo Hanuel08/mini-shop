@@ -1,5 +1,9 @@
 <?php
 
+namespace App\controllers;
+use App\services\UserService;
+use App\core\Request;
+use App\core\Response;
 
 class UserController {
     private $service;

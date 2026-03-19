@@ -1,5 +1,8 @@
 <?php 
 
+namespace App\services;
+use App\repositories\ProductRepository;
+
 class ProductService {
     private $repository;
 

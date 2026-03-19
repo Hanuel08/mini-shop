@@ -1,0 +1,19 @@
+# Dependencias
+vendor/
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Composer
+composer.lock   # opcional, muchos prefieren subir este archivo
+
+# Sistema operativo
+.DS_Store       # Mac
+Thumbs.db       # Windows
+
+# Editores
+.vscode/
+.idea/
+*.swp

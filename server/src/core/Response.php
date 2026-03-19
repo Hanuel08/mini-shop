@@ -1,5 +1,7 @@
 <?php
 
+namespace App\core;
+
 class Response {
     public static function json($data, $status = 200) {
         http_response_code($status);

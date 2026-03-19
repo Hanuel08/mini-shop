@@ -1,5 +1,9 @@
 <?php
 
+namespace App\repositories;
+use App\config\Database;
+use \PDO;
+
 class CountryRepository {
 
     private $db;

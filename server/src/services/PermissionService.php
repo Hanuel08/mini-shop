@@ -1,6 +1,7 @@
 <?php 
 
-
+namespace App\services;
+use App\repositories\PermissionRepository;
 
 class PermissionService {
     private $repository;

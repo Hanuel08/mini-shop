@@ -1,5 +1,9 @@
 <?php
 
+namespace App\controllers;
+use App\services\AddressService;
+use App\core\Request;
+use App\core\Response;
 
 class AddressController {
     private $service;

@@ -1,6 +1,7 @@
 <?php 
 
-
+namespace App\services;
+use App\repositories\AddressRepository;
 
 class AddressService {
     private $repository;

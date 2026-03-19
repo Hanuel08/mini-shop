@@ -1,6 +1,7 @@
 <?php 
 
-
+namespace App\services;
+use App\repositories\LanguageRepository;
 
 class LanguageService {
     private $repository;

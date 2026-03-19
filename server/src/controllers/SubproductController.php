@@ -1,5 +1,10 @@
 <?php
 
+namespace App\controllers;
+use App\services\SubproductService;
+use App\core\Request;
+use App\core\Response;
+
 class SubproductController {
     private $service;
 

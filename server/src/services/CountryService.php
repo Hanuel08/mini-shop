@@ -1,6 +1,7 @@
 <?php 
 
-
+namespace App\services;
+use App\repositories\CountryRepository;
 
 class CountryService {
     private $repository;

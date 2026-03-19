@@ -1,5 +1,21 @@
 <?php
 
+use App\core\Router;
+
+//require_once "../../public/index.php";
+
+use App\controllers\LanguageController;
+use App\controllers\UserController;
+use App\controllers\ProductController;
+use App\controllers\SubproductController;
+use App\controllers\ReviewController;
+use App\controllers\CountryController;
+use App\controllers\AddressController;
+use App\controllers\PermissionController;
+use App\controllers\RoleController;
+
+
+
 
 
 # language
