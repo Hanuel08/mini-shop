@@ -52,4 +52,18 @@ class RoleService {
         }
         return $this->repository->getPermissions($id);
     }
+
+    public function setUser($id, $data) {
+        if (!$id) {
+            throw new Exception("Invalid role id");
+        }
+        return $this->repository->setUser($id, $data);
+    }
+
+    public function getUsers($id) {
+        if (!$id) {
+            throw new Exception("Invalid role id");
+        }
+        return $this->repository->getUsers($id);
+    }
 }

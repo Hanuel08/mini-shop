@@ -49,6 +49,17 @@ class RoleController {
         $permissions = $this->service->getPermissions($id);
         Response::json($permissions);
     }
+
+    public function setUser($id) {
+        $data = Request::body();
+        $this->service->setUser($id, $data);
+        Response::json(["result" => "Role asigned to user successfuly"]);
+    }
+
+    public function getUsers($id) {
+        $users = $this->service->getusers($id);
+        Response::json($users);
+    }
 }
 
 

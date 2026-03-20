@@ -70,4 +70,24 @@ class PermissionRepository {
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         return $stmt->execute();
     }
+
+    public function getRoles($id) {
+        $query = "SELECT 
+                    r.role_id, 
+                    r.role, 
+                    r.description, 
+                    r.created_at, 
+                    r.updated_at 
+                        FROM role r
+                        INNER JOIN permission_x_role pxr
+                        ON r.role_id = pxr.role_id
+                        INNER JOIN permission p
+                        ON pxr.permission_id = p.permission_id
+                    WHERE p.permission_id = :id";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
 }

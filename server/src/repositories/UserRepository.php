@@ -112,7 +112,27 @@ class UserRepository {
                         FROM review r
                         LEFT JOIN user u
                         ON u.user_id = r.user_id
-                        WHERE r.user_id = :id;";
+                    WHERE r.user_id = :id";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function getRoles($id) {
+        $query = "SELECT 
+                    r.role_id, 
+                    r.role, 
+                    r.description, 
+                    r.created_at, 
+                    r.updated_at 
+                        FROM role r
+                        INNER JOIN role_x_user rxu
+                        ON rxu.role_id = r.role_id
+                        INNER JOIN user u
+                        ON u.user_id = rxu.user_id
+                        WHERE u.user_id = :id";
 
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);

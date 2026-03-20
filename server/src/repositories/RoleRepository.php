@@ -103,4 +103,42 @@ class RoleRepository {
         $stmt->execute();
         return $stmt->fetchAll();
     }
+
+    public function setUser($id, $data) {
+        $query = "INSERT INTO role_x_user 
+                    (role_id, user_id)
+                    VALUES 
+                    (:id, :user_id)";
+
+        
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt->bindParam(":user_id", $data["user_id"], PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function getUsers($id) {
+        $query = "SELECT 
+                    u.user_id, 
+                    u.language_id, 
+                    u.name, 
+                    u.last_name, 
+                    u.password, 
+                    u.phone, u.email, 
+                    u.created_at, 
+                    u.updated_at 
+                        FROM user u
+                        INNER JOIN role_x_user rxu
+                        ON rxu.user_id = u.user_id
+                        INNER JOIN role r
+                        ON r.role_id = rxu.role_id
+                    WHERE r.role_id = :id";
+
+        
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
 }

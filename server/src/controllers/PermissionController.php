@@ -38,6 +38,11 @@ class PermissionController {
         $this->service->delete($id);
         Response::json(["result" => "Permission deleted successfuly"]);
     }
+
+    public function getRoles($id) {
+        $roles = $this->service->getRoles($id);
+        Response::json($roles);
+    }
 }
 
 

@@ -43,6 +43,8 @@ $router->get('/users/{id:\d+}/language', [UserController::class, 'getLanguage'])
 
 $router->get('/users/{id:\d+}/reviews', [UserController::class, 'getReviews']);
 
+$router->get('/users/{id:\d+}/roles', [UserController::class, 'getRoles']);
+
 
 
 # product
@@ -129,6 +131,8 @@ $router->put('/permissions/{id:\d+}', [PermissionController::class, 'update']);
 
 $router->delete('/permissions/{id:\d+}', [PermissionController::class, 'delete']);
 
+$router->get('/permissions/{id:\d+}/roles', [PermissionController::class, 'getRoles']);
+
 
 
 # role
@@ -145,6 +149,11 @@ $router->delete('/roles/{id:\d+}', [RoleController::class, 'delete']);
 $router->post('/roles/{id:\d+}/permissions', [RoleController::class, 'setPermission']);
 
 $router->get('/roles/{id:\d+}/permissions', [RoleController::class, 'getPermissions']);
+
+
+$router->post('/roles/{id:\d+}/users', [RoleController::class, 'setUser']);
+
+$router->get('/roles/{id:\d+}/users', [RoleController::class, 'getUsers']);
 
 
 

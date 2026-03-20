@@ -38,4 +38,11 @@ class PermissionService {
         }
         return $this->repository->delete($id);
     }
+
+    public function getRoles($id) {
+        if (!$id) {
+            throw new Exception("Invalid permission id");
+        }
+        return $this->repository->getRoles($id);
+    }
 }

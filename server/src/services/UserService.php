@@ -58,4 +58,11 @@ class UserService {
         }
         return $this->repository->getReviews($id);
     }
+
+    public function getRoles($id) {
+        if (!$id) {
+            throw new Exception("Invalid user id");
+        }
+        return $this->repository->getRoles($id);
+    }
 }
