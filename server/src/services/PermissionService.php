@@ -18,7 +18,7 @@ class PermissionService {
         return $this->repository->getAll();
     }
 
-    public function getByid($id) {
+    public function getById($id) {
         if (!$id) {
             throw new Exception("Invalid permission id");
         }
