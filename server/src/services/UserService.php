@@ -65,4 +65,11 @@ class UserService {
         }
         return $this->repository->getRoles($id);
     }
+
+    public function getOrders($id) {
+        if (!$id) {
+            throw new Exception("Invalid user id");
+        }
+        return $this->repository->getOrders($id);
+    }
 }

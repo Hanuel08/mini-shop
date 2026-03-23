@@ -53,6 +53,11 @@ class UserController {
         $roles = $this->service->getRoles($id);
         Response::json($roles);
     }
+
+    public function getOrders($id) {
+        $roles = $this->service->getOrders($id);
+        Response::json($roles);
+    }
 }
 
 
