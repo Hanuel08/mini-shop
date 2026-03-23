@@ -13,6 +13,7 @@ use App\controllers\PermissionController;
 use App\controllers\RoleController;
 use App\controllers\OrdersController;
 use App\controllers\CartController;
+use App\controllers\CategoryController;
 
 
 # language
@@ -176,12 +177,24 @@ $router->delete('/carts/{id:\d+}', [CartController::class, 'delete']);
 $router->get('/carts/{id:\d+}/subproducts', [CartController::class, 'getSubproducts']);
 $router->post('/carts/{id:\d+}/subproducts', [CartController::class, 'setSubproduct']);
 
-$router->put('/carts/{id:\d+}/subproducts/{subId:\d+}', [CartController::class, 'updateSubproduct']);
+$router->put('/carts/{id:\d+}/subproducts/{id:\d+}', [CartController::class, 'updateSubproduct']);
 
-$router->delete('/carts/{id:\d+}/subproducts/{subId:\d+}', [CartController::class, 'removeSubproduct']);
-
-
+$router->delete('/carts/{id:\d+}/subproducts/{id:\d+}', [CartController::class, 'removeSubproduct']);
 
 
+# category
+$router->get('/categories', [CategoryController::class, 'getAll']);
+$router->get('/categories/{id:\d+}', [CategoryController::class, 'getById']);
 
+$router->post('/categories', [CategoryController::class, 'create']);
+
+$router->put('/categories/{id:\d+}', [CategoryController::class, 'update']);
+
+$router->delete('/categories/{id:\d+}', [CategoryController::class, 'delete']);
+
+# category products
+$router->get('/categories/{id:\d+}/products', [CategoryController::class, 'getProducts']);
+$router->post('/categories/{id:\d+}/products', [CategoryController::class, 'setProduct']);
+
+$router->delete('/categories/{id:\d+}/products/{id:\d+}', [CategoryController::class, 'removeProduct']);
 
