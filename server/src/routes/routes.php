@@ -13,6 +13,7 @@ use App\controllers\CountryController;
 use App\controllers\AddressController;
 use App\controllers\PermissionController;
 use App\controllers\RoleController;
+use App\controllers\OrdersController;
 
 
 
@@ -44,6 +45,8 @@ $router->get('/users/{id:\d+}/language', [UserController::class, 'getLanguage'])
 $router->get('/users/{id:\d+}/reviews', [UserController::class, 'getReviews']);
 
 $router->get('/users/{id:\d+}/roles', [UserController::class, 'getRoles']);
+
+$router->get('/users/{id:\d+}/orders', [UserController::class, 'getOrders']);
 
 
 
@@ -154,6 +157,32 @@ $router->get('/roles/{id:\d+}/permissions', [RoleController::class, 'getPermissi
 $router->post('/roles/{id:\d+}/users', [RoleController::class, 'setUser']);
 
 $router->get('/roles/{id:\d+}/users', [RoleController::class, 'getUsers']);
+
+
+
+# orders
+$router->get('/orders', [OrdersController::class, 'getAll']);
+$router->get('/orders/{id:\d+}', [OrdersController::class, 'getById']);
+
+$router->post('/orders', [OrdersController::class, 'create']);
+
+$router->put('/orders/{id:\d+}', [OrdersController::class, 'update']);
+
+$router->delete('/orders/{id:\d+}', [OrdersController::class, 'delete']);
+
+$router->get('/orders/{id:\d+}', [OrdersController::class, 'getUser']);
+
+
+$router->post('/orders/{id:\d+}/subproducts', [OrdersController::class, 'setSubproduct']);
+
+$router->get('/orders/{id:\d+}/subproducts', [OrdersController::class, 'getSubproducts']);
+
+$router->put('/orders/{id:\d+}/subproducts/{id:\d+}', [OrdersController::class, 'updateSubproduct']);
+
+$router->delete('/orders/{id:\d+}/subproducts/{id:\d+}', [OrdersController::class, 'removeSubproduct']);
+
+
+
 
 
 

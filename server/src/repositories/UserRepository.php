@@ -139,4 +139,24 @@ class UserRepository {
         $stmt->execute();
         return $stmt->fetchAll();
     }
+
+    public function getOrders($id) {
+        $query = "SELECT 
+                    o.order_id, 
+                    o.user_id, 
+                    o.address_id, 
+                    o.total, 
+                    o.status, 
+                    o.created_at, 
+                    o.updated_at
+                        FROM orders o
+                        INNER JOIN user u
+                        ON u.user_id = o.user_id
+                        WHERE o.user_id = :id";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
 }
