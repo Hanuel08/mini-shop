@@ -14,6 +14,8 @@ use App\controllers\RoleController;
 use App\controllers\OrdersController;
 use App\controllers\CartController;
 use App\controllers\CategoryController;
+use App\controllers\ImageController;
+use App\controllers\FavoriteController;
 
 
 # language
@@ -198,3 +200,36 @@ $router->post('/categories/{id:\d+}/products', [CategoryController::class, 'setP
 
 $router->delete('/categories/{id:\d+}/products/{id:\d+}', [CategoryController::class, 'removeProduct']);
 
+
+
+# image
+$router->get('/images', [ImageController::class, 'getAll']);
+$router->get('/images/{id:\d+}', [ImageController::class, 'getById']);
+
+$router->post('/images', [ImageController::class, 'create']);
+
+$router->put('/images/{id:\d+}', [ImageController::class, 'update']);
+
+$router->delete('/images/{id:\d+}', [ImageController::class, 'delete']);
+
+# image products
+$router->get('/images/{id:\d+}/products', [ImageController::class, 'getProducts']);
+$router->post('/images/{id:\d+}/products', [ImageController::class, 'setProduct']);
+
+$router->delete('/images/{id:\d+}/products/{id:\d+}', [ImageController::class, 'removeProduct']);
+
+
+
+# favorite
+$router->get('/favorites', [FavoriteController::class, 'getAll']);
+$router->get('/favorites/{id:\d+}', [FavoriteController::class, 'getById']);
+
+$router->post('/favorites', [FavoriteController::class, 'create']);
+
+$router->delete('/favorites/{id:\d+}', [FavoriteController::class, 'delete']);
+
+# favorite products
+$router->get('/favorites/{id:\d+}/products', [FavoriteController::class, 'getProducts']);
+$router->post('/favorites/{id:\d+}/products', [FavoriteController::class, 'setProduct']);
+
+$router->delete('/favorites/{id:\d+}/products/{id:\d+}', [FavoriteController::class, 'removeProduct']);
