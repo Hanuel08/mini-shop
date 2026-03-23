@@ -2,8 +2,6 @@
 
 use App\core\Router;
 
-//require_once "../../public/index.php";
-
 use App\controllers\LanguageController;
 use App\controllers\UserController;
 use App\controllers\ProductController;
@@ -14,9 +12,7 @@ use App\controllers\AddressController;
 use App\controllers\PermissionController;
 use App\controllers\RoleController;
 use App\controllers\OrdersController;
-
-
-
+use App\controllers\CartController;
 
 
 # language
@@ -49,7 +45,6 @@ $router->get('/users/{id:\d+}/roles', [UserController::class, 'getRoles']);
 $router->get('/users/{id:\d+}/orders', [UserController::class, 'getOrders']);
 
 
-
 # product
 $router->get('/products', [ProductController::class, 'getAll']);
 $router->get('/products/{id:\d+}', [ProductController::class, 'getById']);
@@ -63,8 +58,6 @@ $router->delete('/products/{id:\d+}', [ProductController::class, 'delete']);
 $router->get('/products/{id:\d+}/subproducts', [ProductController::class, 'getSubproducts']);
 
 
-
-
 # subproduct 
 $router->get('/products/subproducts', [SubproductController::class, 'getAll']);
 //$router->get('/products/{id:\d+}/subproducts', [SubproductController::class, 'getAll']);
@@ -76,11 +69,7 @@ $router->put('/products/subproducts/{id:\d+}', [SubproductController::class, 'up
 
 $router->delete('/products/subproducts/{id:\d+}', [SubproductController::class, 'delete']);
 
-
 $router->get('/products/subproducts/{id:\d+}', [SubproductController::class, 'getProduct']);
-
-
-
 
 
 # review
@@ -98,7 +87,6 @@ $router->get('/reviews/{id:\d+}', [ReviewController::class, 'getUser']);
 $router->get('/reviews/{id:\d+}', [ReviewController::class, 'getProduct']);
 
 
-
 # country
 $router->get('/countries', [CountryController::class, 'getAll']);
 $router->get('/countries/{id:\d+}', [CountryController::class, 'getById']);
@@ -110,8 +98,6 @@ $router->put('/countries/{id:\d+}', [CountryController::class, 'update']);
 $router->delete('/countries/{id:\d+}', [CountryController::class, 'delete']);
 
 
-
-
 # address
 $router->get('/address', [AddressController::class, 'getAll']);
 $router->get('/address/{id:\d+}', [AddressController::class, 'getById']);
@@ -121,7 +107,6 @@ $router->post('/address', [AddressController::class, 'create']);
 $router->put('/address/{id:\d+}', [AddressController::class, 'update']);
 
 $router->delete('/address/{id:\d+}', [AddressController::class, 'delete']);
-
 
 
 # permission
@@ -137,7 +122,6 @@ $router->delete('/permissions/{id:\d+}', [PermissionController::class, 'delete']
 $router->get('/permissions/{id:\d+}/roles', [PermissionController::class, 'getRoles']);
 
 
-
 # role
 $router->get('/roles', [RoleController::class, 'getAll']);
 $router->get('/roles/{id:\d+}', [RoleController::class, 'getById']);
@@ -148,16 +132,13 @@ $router->put('/roles/{id:\d+}', [RoleController::class, 'update']);
 
 $router->delete('/roles/{id:\d+}', [RoleController::class, 'delete']);
 
-
 $router->post('/roles/{id:\d+}/permissions', [RoleController::class, 'setPermission']);
 
 $router->get('/roles/{id:\d+}/permissions', [RoleController::class, 'getPermissions']);
 
-
 $router->post('/roles/{id:\d+}/users', [RoleController::class, 'setUser']);
 
 $router->get('/roles/{id:\d+}/users', [RoleController::class, 'getUsers']);
-
 
 
 # orders
@@ -172,7 +153,6 @@ $router->delete('/orders/{id:\d+}', [OrdersController::class, 'delete']);
 
 $router->get('/orders/{id:\d+}', [OrdersController::class, 'getUser']);
 
-
 $router->post('/orders/{id:\d+}/subproducts', [OrdersController::class, 'setSubproduct']);
 
 $router->get('/orders/{id:\d+}/subproducts', [OrdersController::class, 'getSubproducts']);
@@ -180,6 +160,25 @@ $router->get('/orders/{id:\d+}/subproducts', [OrdersController::class, 'getSubpr
 $router->put('/orders/{id:\d+}/subproducts/{id:\d+}', [OrdersController::class, 'updateSubproduct']);
 
 $router->delete('/orders/{id:\d+}/subproducts/{id:\d+}', [OrdersController::class, 'removeSubproduct']);
+
+
+# cart
+$router->get('/carts', [CartController::class, 'getAll']);
+$router->get('/carts/{id:\d+}', [CartController::class, 'getById']);
+
+$router->post('/carts', [CartController::class, 'create']);
+
+$router->put('/carts/{id:\d+}', [CartController::class, 'update']);
+
+$router->delete('/carts/{id:\d+}', [CartController::class, 'delete']);
+
+# cart subproducts
+$router->get('/carts/{id:\d+}/subproducts', [CartController::class, 'getSubproducts']);
+$router->post('/carts/{id:\d+}/subproducts', [CartController::class, 'setSubproduct']);
+
+$router->put('/carts/{id:\d+}/subproducts/{subId:\d+}', [CartController::class, 'updateSubproduct']);
+
+$router->delete('/carts/{id:\d+}/subproducts/{subId:\d+}', [CartController::class, 'removeSubproduct']);
 
 
 
