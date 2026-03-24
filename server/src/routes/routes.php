@@ -16,6 +16,7 @@ use App\controllers\CartController;
 use App\controllers\CategoryController;
 use App\controllers\ImageController;
 use App\controllers\FavoriteController;
+use App\controllers\ShopController;
 
 
 # language
@@ -233,3 +234,29 @@ $router->get('/favorites/{id:\d+}/products', [FavoriteController::class, 'getPro
 $router->post('/favorites/{id:\d+}/products', [FavoriteController::class, 'setProduct']);
 
 $router->delete('/favorites/{id:\d+}/products/{id:\d+}', [FavoriteController::class, 'removeProduct']);
+
+
+
+# shop
+$router->get('/shops', [ShopController::class, 'getAll']);
+$router->get('/shops/{id:\d+}', [ShopController::class, 'getById']);
+
+$router->post('/shops', [ShopController::class, 'create']);
+
+$router->put('/shops/{id:\d+}', [ShopController::class, 'update']);
+
+$router->delete('/shops/{id:\d+}', [ShopController::class, 'delete']);
+
+
+
+# shop products
+$router->get('/shops/{id:\d+}/products', [ShopController::class, 'getProducts']);
+$router->post('/shops/{id:\d+}/products', [ShopController::class, 'setProduct']);
+
+$router->delete('/shops/{id:\d+}/products/{productId:\d+}', [ShopController::class, 'removeProduct']);
+
+# shop followers
+$router->get('/shops/{id:\d+}/followers', [ShopController::class, 'getFollowers']);
+$router->post('/shops/{id:\d+}/followers', [ShopController::class, 'setFollower']);
+
+$router->delete('/shops/{id:\d+}/followers/{userId:\d+}', [ShopController::class, 'removeFollower']);
