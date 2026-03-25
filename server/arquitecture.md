@@ -66,6 +66,50 @@ simple-shop-api
 
 
 
+src
+│
+├── config
+│   └── Database.php
+│
+├── core
+│   ├── Router.php
+│   ├── Request.php
+│   ├── Response.php
+│   └── Controller.php      ← NUEVO
+│
+├── controllers
+│
+├── services
+│
+├── repositories
+│
+├── middleware              ← NUEVO
+│   ├── AuthMiddleware.php
+│   └── RoleMiddleware.php
+│
+├── utils                   ← NUEVO
+│   ├── Validator.php
+│   ├── JWT.php
+│   └── Helpers.php
+│
+├── exceptions              ← NUEVO
+│   └── ApiException.php
+│
+└── routes
+    └── api.php
+
+
+
+200 → OK
+201 → creado
+204 → eliminado sin contenido
+400 → mal request
+401 → no autorizado
+404 → no encontrado
+409 → conflicto (duplicados)
+422 → validación
+500 → error interno
+
 
 
 
