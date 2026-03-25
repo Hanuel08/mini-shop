@@ -111,6 +111,20 @@ src
 500 → error interno
 
 
+src/
+│
+├── Controller/
+├── Service/
+├── Repository/
+├── Core/
+├── Config/
+└── Routes/
+
+
+
+
+
+
 
 
 
