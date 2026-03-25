@@ -2,21 +2,21 @@
 
 use App\core\Router;
 
-use App\controllers\LanguageController;
-use App\controllers\UserController;
-use App\controllers\ProductController;
-use App\controllers\SubproductController;
-use App\controllers\ReviewController;
-use App\controllers\CountryController;
-use App\controllers\AddressController;
-use App\controllers\PermissionController;
-use App\controllers\RoleController;
-use App\controllers\OrdersController;
-use App\controllers\CartController;
-use App\controllers\CategoryController;
-use App\controllers\ImageController;
-use App\controllers\FavoriteController;
-use App\controllers\ShopController;
+use App\Controller\LanguageController;
+use App\Controller\UserController;
+use App\Controller\ProductController;
+use App\Controller\SubproductController;
+use App\Controller\ReviewController;
+use App\Controller\CountryController;
+use App\Controller\AddressController;
+use App\Controller\PermissionController;
+use App\Controller\RoleController;
+use App\Controller\OrdersController;
+use App\Controller\CartController;
+use App\Controller\CategoryController;
+use App\Controller\ImageController;
+use App\Controller\FavoriteController;
+use App\Controller\ShopController;
 
 
 # language
