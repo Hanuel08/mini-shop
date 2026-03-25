@@ -1,8 +1,8 @@
 <?php
 
-namespace App\core;
-use App\core\Request;
-use App\core\Response;
+namespace App\Core;
+use App\Core\Request;
+use App\Core\Response;
 
 class Router {
     private $routes = [];

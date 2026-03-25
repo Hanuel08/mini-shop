@@ -1,6 +1,6 @@
 <?php
 
-namespace App\core;
+namespace App\Core;
 
 class Request {
     public static function method() {
@@ -8,8 +8,6 @@ class Request {
     }
 
     public static function uri() {
-        //echo "URI\n";
-        //var_dump(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
         return parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     }
 
@@ -21,10 +19,3 @@ class Request {
         return $_GET[$key] ?? null;
     }
 }
-
-
-
-
-
-
-

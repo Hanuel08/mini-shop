@@ -1,6 +1,6 @@
 <?php
 
-use App\core\Router;
+use App\Core\Router;
 
 use App\Controller\LanguageController;
 use App\Controller\UserController;

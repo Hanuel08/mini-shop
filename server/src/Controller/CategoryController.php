@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 use App\Service\CategoryService;
-use App\core\Request;
-use App\core\Response;
+use App\Core\Request;
+use App\Core\Response;
 
 class CategoryController {
     private $service;

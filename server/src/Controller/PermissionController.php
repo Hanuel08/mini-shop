@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 use App\Service\PermissionService;
-use App\core\Request;
-use App\core\Response;
+use App\Core\Request;
+use App\Core\Response;
 
 class PermissionController {
     private $service;
