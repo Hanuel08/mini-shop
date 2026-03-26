@@ -1,11 +1,25 @@
 <?php 
 
 require_once __DIR__ . '../../../vendor/autoload.php';
+require_once "../src/utils/passwordHash.php";
 
 use App\Core\Router;
+use App\Core\Response;
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
+
+set_exception_handler(function ($e) {
+    Response::error(
+        $e->getMessage(),
+        method_exists($e, 'getStatus') ? $e->getStatus() : 500,
+        method_exists($e, 'getErrors') ? $e->getErrors() : null
+    );
+});
+
+set_error_handler(function ($severity, $message, $file, $line) {
+    throw new ErrorException($message, 0, $severity, $file, $line);
+});
 
 $router = new Router();
 

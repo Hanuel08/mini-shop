@@ -1,6 +1,5 @@
 <?php
 
-
 function passwordHash ($password) {
     $newPassword = password_hash(
             $password, 
@@ -8,22 +7,4 @@ function passwordHash ($password) {
         );
     return $newPassword;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

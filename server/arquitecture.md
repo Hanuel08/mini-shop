@@ -124,6 +124,46 @@ src/
 
 
 
+TAREAS
+
+# Agregar try catch en repository y en index.php a $router->resolve();:
+
+try {
+    $stmt->execute();
+} catch (PDOException $e) {
+    throw new HttpException("Database error", 500);
+}
+
+
+# Agregar verificacion de json en ::body en Request:
+
+if (json_last_error() !== JSON_ERROR_NONE) {
+    throw new HttpException("Invalid JSON", 400);
+}
+
+
+# Usar Reponse::success en controllers
+
+
+# Hacer procedures para:
+
+orders
+cart → order
+pagos
+
+
+# Agregar middlewares que se usen en controller
+
+
+# Agregar auth
+
+
+
+
+
+
+
+
 
 
 

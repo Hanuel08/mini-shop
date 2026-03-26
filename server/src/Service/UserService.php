@@ -3,6 +3,8 @@
 namespace App\Service;
 use App\Repository\UserRepository;
 
+use App\Core\Validator;
+
 //require_once "../utils/passwordHash.php";
 
 class UserService {
@@ -15,7 +17,21 @@ class UserService {
     public function create($data) {
         $data['password'] = passwordHash($data['password']);
 
-        return $this->repository->create($data);
+        Validator::validate(
+            $data, 
+            # Rules
+            [
+                'name' => 'required|string|min:3|max:50',
+                'price' => 'required|numeric',
+                'email' => 'email'
+            ],
+            # messages
+            [
+                'name.required' => 'El nombre es obligatorio',
+                'name.min' => 'Debe tener mínimo 3 caracteres'
+            ]);
+
+        //return $this->repository->create($data);
     }
 
     public function getAll() {
