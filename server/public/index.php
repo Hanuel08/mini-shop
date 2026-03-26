@@ -10,11 +10,15 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 set_exception_handler(function ($e) {
-    Response::error(
-        $e->getMessage(),
-        method_exists($e, 'getStatus') ? $e->getStatus() : 500,
-        method_exists($e, 'getErrors') ? $e->getErrors() : null
-    );
+    if ($e instanceof BaseException) {
+        Response::error(
+            $e->getMessage(),
+            $e->getStatus(),
+            $e->getErrors()
+        );
+    }
+
+    Response::error("Internal Server Error", 500);
 });
 
 set_error_handler(function ($severity, $message, $file, $line) {
@@ -30,6 +34,7 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
 
 require_once "../src/routes/routes.php";
+
 
 $router->resolve();
 

@@ -2,6 +2,7 @@
 
 namespace App\Config;
 
+use App\Exception\DatabaseException;
 use PDO;
 use PDOException;
 
@@ -31,7 +32,7 @@ class Database {
                 );
 
             } catch (PDOException $err) {
-                throw new \Exception("Database connection error");
+                throw new DatabaseException("Database connection error");
             }
         }
 

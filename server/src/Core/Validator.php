@@ -2,6 +2,8 @@
 
 namespace App\Core;
 
+use App\Exception\ValidationException;
+
 class Validator {
 
     public static function validate(
@@ -66,15 +68,7 @@ class Validator {
             }
         }
 
-        echo var_dump($errors);
-
-        /* if (!empty($errors)) {
-            throw new ValidationException(
-                'Validation error',
-                422,
-                $errors
-            );
-        } */
+        if (!empty($errors)) throw new ValidationException($errors);
     }
 
     private static function validateRequired($value) {
@@ -116,10 +110,6 @@ class Validator {
     }
 
     private static function errorMessage($rule, $messages, $defaultMessage) {
-        $message = [
-            "rule" => $rule,
-            "error" => $messages[$rule] ?? $defaultMessage
-        ];
-        return $message;
+        return $messages[$rule] ?? $defaultMessage;
     }
 }
