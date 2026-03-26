@@ -17,21 +17,7 @@ class UserService {
     public function create($data) {
         $data['password'] = passwordHash($data['password']);
 
-        Validator::validate(
-            $data, 
-            # Rules
-            [
-                'name' => 'required|string|min:3|max:50',
-                'price' => 'required|numeric',
-                'email' => 'email'
-            ],
-            # messages
-            [
-                'name.required' => 'El nombre es obligatorio',
-                'name.min' => 'Debe tener mínimo 3 caracteres'
-            ]);
-
-        //return $this->repository->create($data);
+        return $this->repository->create($data);
     }
 
     public function getAll() {
